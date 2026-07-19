@@ -1,0 +1,1266 @@
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ============================= */
+/*           CUSTOM FONTS        */
+/* ============================= */
+
+@font-face {
+    font-family: "Magnolia";
+    src: url("../fonts/magnolia.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Coneria";
+    src: url("../fonts/coneria.ttf") format("truetype");
+}
+/* Body */
+
+body{
+
+    font-family:"Coneria", cursive;
+
+    background-image:url("../images/background.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    padding:40px 0;
+
+}
+
+/* Floating Hearts Container */
+
+.hearts{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+/* Floating Heart */
+
+.floating-heart{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    animation:floatUp linear forwards;
+
+}
+
+/* Glass Card */
+
+.hero{
+
+    width:80%;
+    max-width:700px;
+
+    background:rgba(0,0,0,.30);
+
+    backdrop-filter:blur(12px);
+
+    padding:60px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    color:white;
+
+    animation:fadeIn 2s ease;
+
+}
+
+/* Beating Heart */
+
+.heart{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+    animation:heartbeat 1s infinite;
+
+}
+
+/* Heading */
+
+.hero h1{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+/* Subtitle */
+
+.hero h2{
+
+    font-size:36px;
+
+    margin-bottom:20px;
+
+}
+
+/* Paragraph */
+
+.hero p{
+
+    font-size:22px;
+
+    line-height:1.6;
+
+    margin-bottom:35px;
+
+}
+
+/* Button */
+
+button{
+
+    background:#ff2d75;
+
+    color:white;
+
+    border:none;
+
+    padding:16px 40px;
+
+    border-radius:50px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:0 0 20px rgba(255,45,117,.6);
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 40px rgba(255,45,117,.9);
+
+}
+
+/* Fade Animation */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Heartbeat */
+
+@keyframes heartbeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.25);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Floating Hearts */
+
+@keyframes floatUp{
+
+    0%{
+
+        transform:translateY(0) scale(1);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-110vh) scale(1.6);
+
+        opacity:0;
+
+    }
+
+}
+
+.story-card{
+
+    width:80%;
+    max-width:700px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    text-align:center;
+
+    color:white;
+
+    animation:fadeIn 1.5s;
+
+}
+
+.story-image{
+
+    width:250px;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    border:5px solid white;
+
+    margin-bottom:25px;
+
+}
+
+.gallery-card{
+
+    width:90%;
+    max-width:1000px;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(12px);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    color:white;
+
+    animation:fadeIn 1.5s;
+
+}
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin:35px 0;
+
+}
+
+.gallery img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    transition:.4s;
+
+    cursor:pointer;
+
+}
+
+.gallery img:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 20px rgba(255,255,255,.6);
+
+}
+
+/* Lightbox */
+
+.lightbox{
+
+    display:none;
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.95);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.lightbox img{
+
+    max-width:90%;
+    max-height:90%;
+
+    border-radius:15px;
+
+}
+
+.close{
+
+    position:absolute;
+
+    top:20px;
+    right:40px;
+
+    color:white;
+
+    font-size:50px;
+
+    cursor:pointer;
+
+}
+
+#typing{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+
+    text-align:left;
+
+    margin:30px 0;
+
+}
+
+/* Love Letter */
+
+.story-card{
+
+    width:85%;
+    max-width:850px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(15px);
+
+    padding:50px;
+
+    border-radius:25px;
+
+    color:white;
+
+    animation:fadeIn 1.5s;
+
+    margin:40px auto;
+
+    text-align:center;
+
+}
+
+.story-card h1{
+
+    margin-bottom:30px;
+
+    font-size:45px;
+
+}
+
+#typing{
+
+    font-size:23px;
+
+    line-height:2;
+
+    text-align:left;
+
+    white-space:pre-wrap;
+
+    margin-bottom:40px;
+
+}
+
+/* Cursor Animation */
+
+#typing::after{
+
+    content:"|";
+
+    animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* Timer */
+
+.timer-box{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    margin:40px 0;
+
+}
+
+.time{
+
+    background:rgba(255,255,255,.15);
+
+    padding:20px;
+
+    border-radius:20px;
+
+}
+
+.time h2{
+
+    font-size:45px;
+
+    color:#ff4d88;
+
+}
+
+.time span{
+
+    font-size:20px;
+
+    color:white;
+
+}
+
+.counter{
+
+    text-align:center;
+
+    margin:40px 0;
+
+}
+
+.counter h2{
+
+    font-size:70px;
+
+    color:#ff4d88;
+
+    margin-top:20px;
+
+}
+
+.counter p{
+
+    font-size:28px;
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+.arrow{
+
+    font-size:50px;
+
+    color:white;
+
+    animation:bounce 1.2s infinite;
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(10px);
+    }
+
+}
+
+
+.counter{
+
+    margin-top:40px;
+
+}
+
+.count-item{
+
+    margin:35px 0;
+
+}
+
+.count-item h2{
+
+    font-size:70px;
+
+    color:#ff4d88;
+
+    text-shadow:0 0 20px #ff4d88;
+
+}
+
+.count-item p{
+
+    font-size:24px;
+
+    letter-spacing:4px;
+
+    color:white;
+
+}
+
+.arrow{
+
+    font-size:45px;
+
+    color:white;
+
+    animation:bounce 1s infinite;
+
+}
+
+@keyframes bounce{
+
+    50%{
+
+        transform:translateY(10px);
+
+    }
+
+}
+
+.love-message{
+
+    margin-top:50px;
+
+    color:#ff9ac1;
+
+    font-size:34px;
+
+}
+
+.love-text{
+
+    margin:20px 0 40px;
+
+    font-size:22px;
+
+    color:white;
+
+}
+
+.music-photo{
+
+width:250px;
+
+height:250px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:8px solid white;
+
+margin:25px auto;
+
+display:block;
+
+animation:spin 15s linear infinite;
+
+}
+
+@keyframes spin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+audio{
+
+width:100%;
+
+margin-top:20px;
+
+}
+
+.hidden{
+    display:none;
+}
+
+.gift-box{
+
+    font-size:120px;
+
+    cursor:pointer;
+
+    animation:shake 1s infinite;
+
+    margin:40px 0;
+
+}
+
+@keyframes shake{
+
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(-8deg);}
+    50%{transform:rotate(8deg);}
+    75%{transform:rotate(-8deg);}
+    100%{transform:rotate(0deg);}
+
+}
+
+.burst-heart{
+
+    position:fixed;
+
+    font-size:35px;
+
+    animation:fly 4s linear forwards;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+}
+
+@keyframes fly{
+
+    from{
+
+        transform:translateY(0) scale(.5);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-500px) scale(2);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================================
+        GLOBAL FONT SETTINGS
+=========================================== */
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family:"Magnolia", cursive;
+}
+
+/* Buttons */
+button{
+    font-family:"Magnolia", cursive;
+}
+
+/* Normal Text */
+p,
+span,
+li,
+a,
+label{
+    font-family:"Coneria", cursive;
+}
+
+/* Typing Letter */
+#typing{
+    font-family:"Coneria", cursive;
+}
+
+/* Hero Section */
+.hero h1,
+.hero h2{
+    font-family:"Magnolia", cursive;
+}
+
+.hero p{
+    font-family:"Coneria", cursive;
+}
+
+/* Journey */
+.story-card h1,
+.story-card h2,
+.story-card h3{
+    font-family:"Magnolia", cursive;
+}
+
+.story-card p{
+    font-family:"Coneria", cursive;
+}
+
+/* Gallery */
+.gallery-card h1{
+    font-family:"Magnolia", cursive;
+}
+
+/* Timer */
+.count-item h2,
+.counter h2{
+    font-family:"Magnolia", cursive;
+}
+
+.count-item p,
+.counter p{
+    font-family:"Magnolia", cursive;
+}
+
+/* Love Message */
+.love-message{
+    font-family:"Magnolia", cursive;
+}
+
+.love-text{
+    font-family:"Coneria", cursive;
+}
+
+/* Gift Box */
+.gift-box{
+    font-family:"Magnolia", cursive;
+}
+
+/* ===========================
+      FINAL SURPRISE
+===========================*/
+
+.tap-text{
+
+font-size:28px;
+
+margin-bottom:20px;
+
+animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+}
+
+.glow{
+
+color:white;
+
+font-size:60px;
+
+text-shadow:
+
+0 0 10px #fff,
+
+0 0 25px #ff2d75,
+
+0 0 40px #ff2d75;
+
+animation:glow 2s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+
+opacity:.7;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+.confetti{
+
+position:fixed;
+
+top:-20px;
+
+width:10px;
+
+height:18px;
+
+z-index:9999;
+
+animation:confettiFall linear forwards;
+
+}
+
+@keyframes confettiFall{
+
+to{
+
+transform:translateY(120vh) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+.gift-box{
+
+font-size:140px;
+
+cursor:pointer;
+
+transition:.5s;
+
+animation:giftBounce 1.2s infinite;
+
+}
+
+.gift-box:hover{
+
+transform:scale(1.15);
+
+}
+
+@keyframes giftBounce{
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+/* ===========================
+        LOADING SCREEN
+=========================== */
+
+#loader{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:#000;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:999999;
+
+transition:opacity 1s;
+
+}
+
+.loader-heart{
+
+font-size:90px;
+
+animation:heartbeat 1s infinite;
+
+}
+
+#loader h2{
+
+margin-top:20px;
+
+color:white;
+
+font-family:"Magnolia";
+
+font-size:40px;
+
+}
+
+/* ===========================
+            STARS
+=========================== */
+
+.stars{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background-image:
+radial-gradient(white 1px,transparent 1px);
+
+background-size:60px 60px;
+
+opacity:.35;
+
+animation:twinkle 4s infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes twinkle{
+
+50%{
+
+opacity:.7;
+
+}
+
+}
+
+/* ===========================
+      PAGE TRANSITION
+=========================== */
+
+body{
+
+    animation: pageFade 0.8s ease;
+}
+
+@keyframes pageFade{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.typing-love{
+
+font-size:34px;
+
+margin:30px;
+
+color:white;
+
+font-family:"Coneria";
+
+animation:fadeIn 3s;
+
+}
+
+.firework{
+
+position:fixed;
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+background:white;
+
+animation:explode 1.6s forwards;
+
+z-index:99999;
+
+}
+
+@keyframes explode{
+
+0%{
+
+transform:scale(.2);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(22);
+
+opacity:0;
+
+}
+
+}
+
+/* Rose Petals */
+
+.petal{
+
+    position:fixed;
+
+    top:-50px;
+
+    font-size:28px;
+
+    animation:fall linear forwards;
+
+    pointer-events:none;
+
+    z-index:999;
+
+}
+
+@keyframes fall{
+
+    from{
+
+        transform:translateY(0) rotate(0deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(110vh) rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+.hero,
+.story-card,
+.gallery-card{
+
+width:95%;
+
+padding:25px;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.hero h2{
+
+font-size:28px;
+
+}
+
+button{
+
+width:100%;
+
+font-size:18px;
+
+}
+
+.story-image{
+
+width:220px;
+
+height:220px;
+
+}
+
+}
+
+/* Final Button */
+
+#foreverBtn{
+
+margin-top:40px;
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:50px;
+
+background:#ff2d75;
+
+color:white;
+
+font-size:24px;
+
+cursor:pointer;
+
+transition:.4s;
+
+box-shadow:
+0 0 20px #ff2d75,
+0 0 40px #ff2d75;
+
+animation:glowButton 1.5s infinite alternate;
+
+}
+
+#foreverBtn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 30px #fff,
+0 0 60px #ff2d75,
+0 0 100px #ff2d75;
+
+}
+
+@keyframes glowButton{
+
+from{
+
+box-shadow:
+0 0 20px #ff2d75;
+
+}
+
+to{
+
+box-shadow:
+0 0 45px #ff2d75,
+0 0 80px #ff2d75;
+
+}
+
+}
+
+.glow2{
+
+margin-top:30px;
+
+font-size:40px;
+
+color:white;
+
+text-shadow:
+0 0 15px white,
+0 0 35px #ff2d75;
+
+}
+
+#endingMessage{
+
+margin-top:35px;
+
+font-size:30px;
+
+color:#ffd6e8;
+
+font-family:"Coneria";
+
+opacity:0;
+
+transition:2s;
+
+}
